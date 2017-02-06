@@ -1,7 +1,9 @@
 # GOPack
 Matlab package for circle packing
 
-GOPack is a matlap package developed by Chuck Collins, Gerald Orick, and Ken Stephenson 
-at the University of Tennessee, Knoxville, 2017. 
-The inputs are triangulations of topological discs or spheres and the outputs are circle packings having 
-the pattern of tangencies of the triangulations.
+GOPack is a matlap package developed at the University of Tennessee
+by Chuck Collins, Gerald Orick, and Ken Stephenson, 2017.
+The inputs are triangulations of topological discs or spheres, provided
+by the user or created randomly with methods of the package. The outputs
+are circle packings having the patterns of tangencies of the given
+triangulations. 
