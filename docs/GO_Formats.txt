@@ -1,0 +1,88 @@
+GOPack Documentation: File formats for circle packing data.
+
+NOTES:
+* All data files are plain ASCII.
+* See samples in the "data/" subdirectory
+
+
+INPUTS: Typically, the inputs are combinatorial only. Essential is
+data for the "complex" K, which encodes the number and neighbor
+relationships of the circles in the desired circle packing P. All
+other information can be provided by the user once K has been loaded
+or will be set with default procedures in GOPack. For example, one may
+designate an interior "alpha" vertex and a second "gamma" vertex to be
+used in normalizations, and for a "polygonal" circle packing, one may
+specify the boundary vertices which are to act as "corners" and, 
+optionally, a list of angle sums for these corners. 
+
+OUTPUTS: Typically, an output file will give an encoding of K, lists
+of radii and x-y coordinates of centers for P, an indication of the 
+geometry of the radii/centers ("euclidean", "hyperbolic", or "spherical"), 
+the alpha and gamma vertices, a list of corner vertices for polygonal
+packings, and, if necessary, a map giving the original vertex indexing.
+
+NOTE: GOPack has default procedures for all input and output data other
+than the complex K itself.
+
+===============================
+
+The PREFERRED FORMAT for both input and output is that designed for
+the software package CirclePack, namely, the *.p file format given
+below. Here the combinatorics of K are specified by giving, for each
+vertex, the counterclockwise list of neighboring vertices 
+
+Alternately, GOPack can create K based on a listing of its triangles;
+the input file should list triples ofvertices, v1 v2 v3, defining faces,
+one face per line. If necessary, GOpack will reindex vertices so they
+run contiguously from 1; original indices can be recovered from the 
+"VERTEX_MAP:" section of the output *.p file. The triangles need not 
+be consistently oriented, but if the triangulation cannot be orientabled
+then an error message will result.
+
+For other input formats, it is recommended that the user write a routine
+to reindex, if necessary, and put the data in the *.p format.
+
+GOPack computations are carried out in euclidean geometry, and the
+user can optionally save a circle packing in its euclidean form
+irrespective of its intrinsic geometry.
+
+----------------- CirclePack *.p format (key-word based) -------------
+
+	NODECOUNT: N
+	ALPHA/BETA/GAMMA: a b c (optional)
+	GEOMETRY: ("hyp", "eucl", or "sph") (optional)
+	FLOWERS:
+		n m   v_0 v_1 .. v_m
+		... 
+		... 
+		(n=index, m=#faces, v_j=nghb list, may be closed)
+		
+	RADII:			(optional)
+		r1 r2 ...
+	CENTERS:		(optional)
+		x1 y1  x2 y2  ...
+	ANGLESUMS:		(optional)
+		a1 a2 ...
+	ANGLE_AIMS:		(optional)
+		v1 a1  
+		v2 a2 
+		... 
+		(done)
+		(vj=circle index, aj=intended angle sum)
+		
+	VERT_LIST:		(optional)
+		v1 v2 ... (done)
+		(utility list of vertices)
+
+	VERTEX_MAP:	        (optional)
+		v1 l1
+		v2 l2
+		v3 l3
+		...
+		(done)
+		(v_j is current circle index, l_j is original index)
+
+	END
+
+----------------------- end of *.p file ------------------
+

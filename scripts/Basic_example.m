@@ -1,0 +1,13 @@
+fprintf('Basic circle packing example with step-by-step description:\n');
+fprintf('   NOTE TO USER: you may need to add to path to load/save data file.\n');
+addpath('..\data');
+fprintf('Other example scripts carry out similar steps, modified as appropriate.\n\n');
+fprintf('  (1). We first create random combinatorics for a triangulation of a disc.\n\n');
+gop=randomDisc(200);
+fprintf('\n  (2). We next call "riffle" to repack as a maximal packing of the unit disc.\n\n');
+gop.riffle();
+fprintf('\n  (3). We show the packing in a figure; this is euclidean data.\n\n');
+gop.show();
+fprintf('  (4). We save the result as a hyperbolic packing of the disc.\n\n');
+gop.writepack('hypDisc200.p');
+fprintf('\n  (5). The example is finished, but the packing can now be analysed using "CirclePack" software.\n\n');

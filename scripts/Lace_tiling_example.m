@@ -1,0 +1,14 @@
+fprintf('Sample script to circle pack a "lace" tiling pattern; this comes\n');
+fprintf('from a subdivision rule due to Jim Cannon, Bill Floyd, and Walter Parry.\n');
+fprintf('We first create a GOPacker and then read in the combinatorics.\n\n');
+gop=GOPacker();
+gop.readpack('lace42000_K.p');
+fprintf('\nThe data already prescribes the corner vertices, so we set the "mode" to 2 (polygonal) and then repack.\n\n');
+gop.setMode(2);
+gop.riffle(50);
+fprintf('\nWe show the faces not the circles; this is the embedding of the\n');
+fprintf('combinatorics with the geometry the circle packing imposes.\n\n');
+gop.show('object','face');
+fprintf('\nWe save the packing to a file.\n');
+gop.writepack('lace_P.p');
+fprintf('\nThanks to Cannon, Floyd, and Parry for this example!\n\n');

@@ -1,0 +1,10 @@
+fprintf('Sample script to circle pack a "lace" subdivision rule due to\n');
+fprintf('Warning:\n  We must load a file with 500,000+ vertices: this and packing takes several minutes.\n');
+fprintf('  For level 3, run "Lace_l3_example.m"\n');
+gop=GOPacker();
+gop.readpack('lace500000_K.p');
+gop.setMode(2);
+gop.riffle(50);
+gop.show();
+gop.writepack('lace500000_P.p');
+fprintf('\nThanks to Cannon, Floyd, and Parry for this example!\n\n');
