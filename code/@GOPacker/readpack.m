@@ -92,10 +92,13 @@ while (done==0)
    end
    
    % these should only occur in NODECOUNT case
-   if strcmp(S(1:4),'ALPH') % ALPHA/BETA/GAMMA:
+   if strcmp(S(1:4),'ALPH') % ALPHA/GAMMA (obe: ALPHA/BETA/GAMMA)
       x = fscanf(fid,'%d',3);
       obj.alpha = x(1);
-      obj.gamma = x(3);
+      obj.gamma = x(2);
+      if (size(x,1)==3)
+          obj.gamma=x(3);
+      end
 
    elseif strcmp(S(1:4),'GEOM') % GEOMETRY: default to eucl
       % note: in CHECKCOUNT case, 
