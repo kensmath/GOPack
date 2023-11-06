@@ -117,9 +117,9 @@ while (done==0)
       end
       
    % ---------------- lots of processing here --------------------
-   elseif (strcmp(S(1:4),'FLOW') && nodeCase==1) 
+   elseif ((strcmp(S(1:4),'FLOW') || strcmp(S(1:4),'BOUQ')) && nodeCase==1) 
       if nodeCase~=1
-           fprintf('Error: improper FLOWER data for CHECKCOUNT case\n');
+           fprintf('Error: improper FLOWER/BOUQUET data for CHECKCOUNT case\n');
            vertexCount=0;
            return;
       end
