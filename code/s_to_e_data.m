@@ -18,7 +18,7 @@ end
 if (phi+sr)>=(pi+S_TOLER)
     sr=pi-sr;
     V=V*-1.0;
-    sz=proj_vec_to_sph(V); % antipodal center
+    sz=proj_vec_to_s(V); % antipodal center
     flipflag=-1;
 end
 

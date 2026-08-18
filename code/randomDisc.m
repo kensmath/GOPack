@@ -38,6 +38,7 @@ while hits<=intN && count<100*intN
         intY(hits)=y;
         hits=hits+1;
     end
+    count=count+1;
 end
 if count==100*intN
     fprintf('overran saftey check in randDisc\n');
