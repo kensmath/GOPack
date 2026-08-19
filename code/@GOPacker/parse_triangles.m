@@ -273,7 +273,7 @@ while nextv<=top
 end
 
 %% if alpha not already set, choose deep alpha
-if isempty(obj.alpha) || obj.alpha(1)==0
+if isempty(obj.alpha) || obj.alpha(1)<=0
     seeds=zeros(1,obj.nodeCount);
     tick=1;
     for j=1:obj.nodeCount
